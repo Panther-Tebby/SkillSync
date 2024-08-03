@@ -1,0 +1,217 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container Styles */
+.container {
+    max-width: 1200px; /* Increased width for more spacious layout */
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header Styles */
+header {
+    background-color: #a3c2e3; /* Light blue color */
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+nav ul li a:hover {
+    background-color: #7a9ac4; /* Slightly darker blue for hover effect */
+    text-decoration: none;
+}
+
+/* Hero Section Styles */
+.hero {
+    text-align: center;
+    margin: 50px 0;
+}
+
+.hero h1 {
+    color: #333;
+    margin-top: 20px;
+}
+
+.hero button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.hero button:hover {
+    background-color: #0056b3;
+}
+
+/* Features Section Styles */
+.features {
+    display: flex;
+    justify-content: space-around;
+    margin: 50px 0;
+}
+
+.features div {
+    width: 30%;
+    padding: 20px;
+    border: 1px solid #ddd;
+    text-align: center;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Section Styles */
+.form-section {
+    display: none;
+    margin: 50px 0;
+}
+
+.form-section.active {
+    display: block;
+}
+
+.form-section form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-section form label,
+.form-section form input,
+.form-section form button {
+    margin: 10px 0;
+}
+
+.error-message {
+    color: red;
+    font-style: italic;
+    margin-top: 5px;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    padding: 1em;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Specific Form Styles */
+form {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: calc(100% - 22px); /* Adjusted width to accommodate padding and border */
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* List Styles */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background: #fff;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Additional Styles for Dashboard Section */
+#dashboard nav ul {
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+}
+
+#dashboard nav ul li {
+    margin-right: 0;
+    margin-left: 0.5em;
+}
+
+#loadingIndicator {
+    text-align: center;
+    margin-top: 20px;
+    display: none; /* Hidden by default */
+}
+
+#results {
+    margin-top: 20px;
+    display: none; /* Hidden by default */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 40px; /* Adjust the size as needed */
+    margin-right: 10px; /* Space between the logo image and text */
+}
+
+.logo span {
+    font-size: 24px; /* Adjust the size as needed */
+    font-weight: bold;
+    color: #fff; /* Adjust color as needed */
+}
+
+

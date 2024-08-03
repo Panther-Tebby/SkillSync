@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillSync</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('C:/Users/Admin/Downloads/jobs of the future.jfif') no-repeat center center fixed;
+            background-size: cover;
+        }
+        header {
+            background-color: rgba(54, 40, 241, 0.8);
+            padding: 1em;
+            color: rgb(214, 103, 29);
+            position: relative;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: #0f0f0f;
+            text-decoration: none;
+            padding: 10px;
+        }
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: rgba(54, 40, 241, 0.9);
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .dropdown-content a {
+            color: #fff;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown-content a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+        }
+        .hero {
+            text-align: center;
+            margin: 50px 0;
+        }
+        .hero button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        .features {
+            display: flex;
+            justify-content: space-around;
+            margin: 50px 0;
+        }
+        .features div {
+            width: 30%;
+            padding: 20px;
+            border: 1px solid #ddd;
+            text-align: center;
+            background: #f9f9f9;
+        }
+        .form-section {
+            display: none;
+            margin: 50px 0;
+        }
+        .form-section.active {
+            display: block;
+        }
+        .form-section form {
+            display: flex;
+            flex-direction: column;
+        }
+        .form-section form label,
+        .form-section form input,
+        .form-section form button {
+            margin: 10px 0;
+        }
+        .error-message {
+            color: red;
+            font-style: italic;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* About Section Styles */
+        #about {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 50px 0;
+        }
+        #about h2 {
+            color: #3628f1;
+            margin-bottom: 20px;
+        }
+        #about h3 {
+            color: #3628f1;
+            margin-top: 30px;
+        }
+        #about p,
+        #about ul {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        #about ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        /* Sign-In Section Styles */
+        #signin {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 50px 0;
+        }
+        #signin h2 {
+            color: #3628f1;
+            margin-bottom: 20px;
+        }
+        #signin form label {
+            font-weight: bold;
+        }
+        #signin form input {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        #signin form button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #3628f1;
+            color: white;
+            cursor: pointer;
+        }
+        #signin form button:hover {
+            background-color: #21409a;
+        }
+        #signin a {
+            color: #3628f1;
+            text-decoration: none;
+        }
+        #signin a:hover {
+            text-decoration: underline;
+        }
+
+        /* Dashboard Section Styles */
+        #dashboard nav ul {
+            display: flex;
+            justify-content: space-around;
+            background-color: #3628f1;
+            padding: 10px;
+            border-radius: 10px;
+            list-style: none;
+        }
+        #dashboard nav ul li {
+            margin: 0 10px;
+        }
+        #dashboard nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: #21409a;
+        }
+        #dashboard nav ul li a:hover {
+            background-color: #172870;
+        }
+
+        /* Section Styles */
+        #dashboard .form-section {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        #dashboard h3 {
+            color: #3628f1;
+            margin-bottom: 20px;
+        }
+        #dashboard form label {
+            font-weight: bold;
+        }
+        #dashboard form input,
+        #dashboard form select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        #dashboard form button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #3628f1;
+            color: white;
+            cursor: pointer;
+        }
+        #dashboard form button:hover {
+            background-color: #21409a;
+        }
+        #dashboard #results ul {
+            list-style: none;
+            padding: 0;
+        }
+        #dashboard #results ul li {
+            background: #f9f9f9;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="C:\Users\Admin\Downloads\Cyan Modern Professional Technology Company Logo.png" alt="SkillSync Logo">
+                <span>SkillSync</span>
+            </div>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="hero">
+            <h1>Welcome to SkillSync</h1>
+            <p>Aligning Education with Job Market Needs CareerMap.</p>
+            <button onclick="location.href='signup.html'">Sign Up</button>
+            <button onclick="location.href='signin.html'">Sign In</button>
+        </div>
+
+        <div class="features">
+            <div>
+                <h2>Career Prediction</h2>
+                <p>Get insights on in-demand careers based on your skills and interests.</p>
+            </div>
+            <div>
+                <h2>University Connections</h2>
+                <p>Connect with universities to find the best courses and programs for your career goals.</p>
+            </div>
+            <div>
+                <h2>Job Matching</h2>
+                <p>Automatically match with job opportunities that fit your profile.</p>
+            </div>
+        </div>
+
+        <!-- About Section -->
+        <section id="about" class="form-section active">
+            <h2>About SkillSync</h2>
+            <p>At SkillSync, we are driven by a profound sense of purpose and a mission to revolutionize the way education and career opportunities converge. Our innovative platform is designed to bridge the gap between educational institutions, students, and employers, creating a seamless pathway from learning to meaningful employment.</p>
+            <h3>Our Mission</h3>
+            <p>Our mission is to empower individuals to achieve their career aspirations by providing them with personalized career predictions, connecting them with the right educational programs, and matching them with job opportunities that align with their skills and interests.</p>
+            <h3>How It Works</h3>
+            <ul>
+                <li><strong>Career Prediction:</strong> Our advanced AI-driven algorithms analyze your skills, interests, and market trends to predict the most in-demand careers for you.</li>
+                <li><strong>University Connections:</strong> Discover universities offering relevant programs and courses to enhance your skills and achieve your career goals.</li>
+                <li><strong>Job Matching:</strong> Our platform automatically matches you with job opportunities that align with your profile, ensuring a perfect fit for your career journey.</li>
+            </ul>
+        </section>
+
+        <!-- Sign-In Section -->
+        <section id="signin" class="form-section">
+            <h2>Sign In</h2>
+            <form action="/signin" method="post">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit">Sign In</button>
+            </form>
+            <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+        </section>
+
+        <!-- Dashboard Section -->
+        <div id="dashboard">
+            <nav>
+                <ul>
+                    <li><a href="#career-prediction" onclick="showSection('career-prediction')">Career Prediction</a></li>
+                    <li><a href="#university-connections" onclick="showSection('university-connections')">University Connections</a></li>
+                    <li><a href="#job-matching" onclick="showSection('job-matching')">Job Matching</a></li>
+                    <li><a href="#profile" onclick="showSection('profile')">Profile</a></li>
+                    <li><a href="#settings" onclick="showSection('settings')">Settings</a></li>
+                </ul>
+            </nav>
+
+            <!-- Career Prediction Section -->
+            <div id="career-prediction" class="form-section">
+                <h3>Career Prediction</h3>
+                <form action="/predict_career" method="post" id="skillsForm">
+                    <label for="skills">Enter your skills (comma separated):</label>
+                    <input type="text" id="skills" name="skills" required autocomplete="on" placeholder="e.g., Python, Data Analysis"
+                        aria-label="Skills input field">
+                    <button type="submit">Predict Career</button>
+                    <span class="error-message" id="skillsError"></span>
+                </form>
+                <div id="loadingIndicator" style="display: none;">
+                    <p>Loading...</p>
+                </div>
+                <div id="results" style="display: none;">
+                    <h2>Predicted Careers</h2>
+                    <ul id="matchesList">
+                        <!-- Career matches will be dynamically added here -->
+                    </ul>
+                </div>
+            </div>
+
+            <!-- University Connections Section -->
+            <div id="university-connections" class="form-section">
+                <h3>University Connections</h3>
+                <p>Search for universities offering relevant programs and courses.</p>
+                <!-- Add search and filter options here -->
+            </div>
+
+            <!-- Job Matching Section -->
+            <div id="job-matching" class="form-section">
+                <h3>Job Matching</h3>
+                <p>Find job opportunities that match your profile.</p>
+                <!-- Add job matching details here -->
+            </div>
+
+            <!-- Profile Section -->
+            <div id="profile" class="form-section">
+                <h3>Profile</h3>
+                <form action="/update_profile" method="post" enctype="multipart/form-data">
+                    <label for="profile_picture">Profile Picture:</label>
+                    <input type="file" id="profile_picture" name="profile_picture">
+                    <label for="bio">Bio:</label>
+                    <input type="text" id="bio" name="bio">
+                    <label for="resume">Resume:</label>
+                    <input type="file" id="resume" name="resume">
+                    <button type="submit">Update Profile</button>
+                </form>
+            </div>
+
+            <!-- Settings Section -->
+            <div id="settings" class="form-section">
+                <h3>Settings</h3>
+                <form action="/update_settings" method="post">
+                    <label for="change_password">Change Password:</label>
+                    <input type="password" id="change_password" name="change_password">
+                    <label for="email_preferences">Email Preferences:</label>
+                    <input type="text" id="email_preferences" name="email_preferences">
+                    <label for="privacy_settings">Privacy Settings:</label>
+                    <input type="text" id="privacy_settings" name="privacy_settings">
+                    <button type="submit">Update Settings</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 SkillSync. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.form-section');
+            sections.forEach(section => section.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const form = document.getElementById('skillsForm');
+            const skillsInput = document.getElementById('skills');
+            const skillsError = document.getElementById('skillsError');
+            const loadingIndicator = document.getElementById('loadingIndicator');
+            const resultsDiv = document.getElementById('results');
+            const matchesList = document.getElementById('matchesList');
+
+            form.addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevent default form submission
+                const skills = skillsInput.value.trim();
+                if (skills === '') {
+                    skillsError.textContent = 'Please enter your skills.';
+                } else {
+                    skillsError.textContent = '';
+                    loadingIndicator.style.display = 'block';
+                    resultsDiv.style.display = 'none';
+                    matchesList.innerHTML = ''; // Clear previous results
+                    // Simulate loading delay for demo purposes
+                    setTimeout(function() {
+                        fetch('/predict_career', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({ skills: skills })
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            loadingIndicator.style.display = 'none';
+                            resultsDiv.style.display = 'block';
+                            if (data.matches.length === 0) {
+                                matchesList.innerHTML = '<li>No matching careers found.</li>';
+                            } else {
+                                data.matches.forEach(match => {
+                                    const li = document.createElement('li');
+                                    li.textContent = `${match.title} (Skills required: ${match.required_skills})`;
+                                    matchesList.appendChild(li);
+                                });
+                            }
+                        })
+                        .catch(error => {
+                            loadingIndicator.style.display = 'none';
+                            console.error('Error fetching matches:', error);
+                        });
+                    }, 1000); // Adjust delay as needed
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
+
